@@ -910,6 +910,14 @@ class TestErrorInitReprStr(TestCase):
             error = exceptions.ValidationError("message", **k)
             self.assertEqual(str(error), "message")
 
+    def test_none_validator(self):
+        error = exceptions.ValidationError("message", validator=None)
+        self.assertIsNone(error.validator)
+        self.assertEqual(
+            exceptions.ValidationError.__init__.__annotations__["validator"],
+            "str | None",
+        )
+
     def test_empty_paths(self):
         self.assertShows(
             """

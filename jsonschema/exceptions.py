@@ -60,7 +60,7 @@ class _Error(Exception):
     def __init__(
         self,
         message: str,
-        validator: str = _unset,  # type: ignore[assignment]
+        validator: str | None = _unset,  # type: ignore[assignment]
         path: Iterable[str | int] = (),
         cause: Exception | None = None,
         context=(),
@@ -357,7 +357,7 @@ class ErrorTree:
         *,
         instance: Any = _unset,
     ):
-        self.errors: MutableMapping[str, ValidationError] = {}
+        self.errors: MutableMapping[str | None, ValidationError] = {}
         self._contents: MutableMapping[str | int, ErrorTree] = {}
         self._instance = instance
 
