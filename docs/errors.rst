@@ -40,6 +40,9 @@ raised or returned, depending on which method or function is used.
         The name of the failed `keyword
         <https://json-schema.org/draft/2020-12/json-schema-validation.html#name-a-vocabulary-for-structural>`_.
 
+        `None` when the error comes from a boolean ``false`` schema,
+        which has no keyword.
+
     .. attribute:: validator_value
 
         The associated value for the failed keyword in the schema.
